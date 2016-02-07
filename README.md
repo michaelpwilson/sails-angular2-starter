@@ -22,6 +22,9 @@ This will install all dependencies for Sails.js and Angular2. When you lift the 
 You can choose which Angular2 dependencies to use, change the order.
 
 Note: when included your Angular2 project files, don't include the ```.ts``` version, make sure its the compiled ```.js``` file.
+
+tasks/pipeline.js:
+
 ```javascript
 // Client-side javascript files to inject in order
 // (uses Grunt-style wildcard/glob/splat expressions)
