@@ -1,113 +1,78 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>New Sails App</title>
+
+    <title><%=typeof title == 'undefined' ? 'New Sails App' : title%></title>
 
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
-    <!--  
-        Stylesheets and Preprocessors
-        ==============================
-
-        You can always bring in CSS files manually with `<link>` tags, or asynchronously
-        using a solution like AMD (RequireJS).  Or, if you like, you can take advantage 
-        of Sails' conventional asset pipeline (boilerplate Gruntfile).
-
-        By default, stylesheets from your `assets/styles` folder are included
-        here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
-        are supported. In production, your styles will be minified and concatenated into
-        a single file.
-        
-        To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
-        For example, here are a few things you could do:
-            
-            + Change the order of your CSS files
-            + Import stylesheets from other directories
-            + Use a different or additional preprocessor, like SASS, SCSS or Stylus
-    -->
-
     <!--STYLES-->
     <link rel="stylesheet" href="/styles/importer.css">
     <!--STYLES END-->
-    
+
   </head>
 
   <body>
-
     <%- body %>
-
-    <!--
-        Client-side Templates
-        ========================
-
-        HTML templates are important prerequisites of modern, rich client applications.
-        To work their magic, frameworks like Backbone, Angular, Ember, and Knockout require
-        that you load these templates client-side.
-
-        By default, your Gruntfile is configured to automatically load and precompile
-        client-side JST templates in your `assets/templates` folder, then
-        include them here automatically (between TEMPLATES and TEMPLATES END).
-        
-        To customize this behavior to fit your needs, just edit `tasks/pipeline.js`.
-        For example, here are a few things you could do:
-
-            + Import templates from other directories
-            + Use a different template engine (handlebars, jade, dust, etc.)
-            + Internationalize your client-side templates using a server-side
-              stringfile before they're served.
-    -->
 
     <!--TEMPLATES-->
     
     <!--TEMPLATES END-->
 
-
-    <!--
-
-      Client-side Javascript
-      ========================
-
-      You can always bring in JS files manually with `script` tags, or asynchronously
-      on the client using a solution like AMD (RequireJS).  Or, if you like, you can 
-      take advantage of Sails' conventional asset pipeline (boilerplate Gruntfile).
-
-      By default, files in your `assets/js` folder are included here
-      automatically (between SCRIPTS and SCRIPTS END).  Both JavaScript (.js) and
-      CoffeeScript (.coffee) are supported. In production, your scripts will be minified
-      and concatenated into a single file.
-      
-      To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
-      For example, here are a few things you could do:
-          
-          + Change the order of your scripts
-          + Import scripts from other directories
-          + Use a different preprocessor, like TypeScript
-
-    -->
-
     <!--SCRIPTS-->
     <script src="/js/dependencies/sails.io.js"></script>
     <script src="/js/node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="/js/node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="/js/node_modules/zone.js/dist/zone.min.js"></script>
     <script src="/js/node_modules/systemjs/dist/system-polyfills.js"></script>
-    <script src="/js/node_modules/angular2/bundles/angular2-polyfills.js"></script>
     <script src="/js/node_modules/systemjs/dist/system.src.js"></script>
-    <script src="/js/node_modules/rxjs/bundles/Rx.js"></script>
-    <script src="/js/node_modules/angular2/bundles/angular2.dev.js"></script>
-    <script src="/js/app.component.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="/js/node_modules/rxjs/bundles/Rx.min.js"></script>
+    <script src="/js/app/app.component.js"></script>
+    <script src="/js/app/chat-detail.component.js"></script>
+    <script src="/js/app/chat.js"></script>
+    <script src="/js/app/main.js"></script>
     <!--SCRIPTS END-->
     
     <script src="http://localhost:35729/livereload.js"></script>
     <script>
       System.config({
-        packages: {        
-          app: {
-            format: 'register',
-            defaultExtension: 'js'
+          packages: {
+            app: {
+              format: 'register',
+              defaultExtension: 'js',
+              main: 'main.js'
+            },
+            '@angular/core': {
+              main: 'bundles/core.umd.js',
+              defaultExtension: 'js'
+            },
+            '@angular/compiler': {
+              main: 'bundles/compiler.umd.js',
+              defaultExtension: 'js'
+            },
+            '@angular/common': {
+              main: 'bundles/common.umd.js',
+              defaultExtension: 'js'
+            },
+            '@angular/platform-browser-dynamic': {
+              main: 'bundles/platform-browser-dynamic.umd.js',
+              defaultExtension: 'js'
+            },
+            '@angular/platform-browser': {
+              main: 'bundles/platform-browser.umd.js',
+              defaultExtension: 'js'
+            },
+            rxjs: {
+              main: 'bundles/Rx.umd.min.js',
+              defaultExtension: 'js'
+            }
+          },
+          map: {
+            'app': 'js/app',
+            '@angular': 'js/node_modules/@angular',
+            'rxjs': 'js/node_modules/rxjs'
           }
-        }
       });
       System.import('main')
             .then(null, console.error.bind(console));

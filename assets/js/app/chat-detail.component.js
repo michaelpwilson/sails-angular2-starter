@@ -1,4 +1,4 @@
-System.register("app.component", ['angular2/core'], function(exports_1, context_1) {
+System.register("chat-detail.component", ['@angular/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -8,25 +8,28 @@ System.register("app.component", ['angular2/core'], function(exports_1, context_
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
     var core_1;
-    var AppComponent;
+    var ChatDetailComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            AppComponent = (function () {
-                function AppComponent() {
+            ChatDetailComponent = (function () {
+                function ChatDetailComponent() {
                 }
-                AppComponent = __decorate([
+                __decorate([
+                    core_1.Input()
+                ], ChatDetailComponent.prototype, "chat");
+                ChatDetailComponent = __decorate([
                     core_1.Component({
-                        selector: 'my-app',
-                        template: '<h1>My First Angular 2 App</h1>'
+                        selector: 'chat-detail',
+                        template: "\n    <div *ngIf=\"chat\">\n      <h2>{{chat.name}} details!</h2>\n      <div><label>id: </label>{{chat.id}}</div>\n      <div>\n        <label>name: </label>\n        <input [(ngModel)]=\"chat.name\" placeholder=\"name\"/>\n      </div>\n    </div>\n  "
                     })
-                ], AppComponent);
-                return AppComponent;
+                ], ChatDetailComponent);
+                return ChatDetailComponent;
             }());
-            exports_1("AppComponent", AppComponent);
+            exports_1("ChatDetailComponent", ChatDetailComponent);
         }
     }
 });
