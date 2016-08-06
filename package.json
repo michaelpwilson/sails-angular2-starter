@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "concurrently": "^1.0.0",
+    "tsd": "^0.6.5",
     "typescript": "^1.7.5"
   },
   "includers": [
@@ -42,7 +43,6 @@
   "scripts": {
     "debug": "node debug app.js",
     "start": "node app.js"
-    
   },
   "main": "app.js",
   "repository": {
