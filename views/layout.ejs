@@ -91,7 +91,6 @@
     <script src="/js/dependencies/sails.io.js"></script>
     <script src="/js/node_modules/es6-shim/es6-shim.min.js"></script>
     <script src="/js/node_modules/reflect-metadata/Reflect.js"></script>
-    <script src="/js/node_modules/zone.js/dist/zone.min.js"></script>
     <script src="/js/node_modules/systemjs/dist/system-polyfills.js"></script>
     <script src="/js/node_modules/systemjs/dist/system.src.js"></script>
     <script src="/js/node_modules/rxjs/bundles/Rx.min.js"></script>
@@ -105,61 +104,40 @@
     <script>
       System.config({
           packages: {
-              app: {
-                  format: 'register',
-                  defaultExtension: 'js',
-                  main: 'main.js'
-              },
-              '@angular/core': {
-                  defaultExtension: 'js',
-                  main: 'index.js'
-              },
-
-              '@angular/common': {
-                  defaultExtension: 'js',
-                  main: 'index.js'
-              },
-
-              '@angular/compiler': {
-                  defaultExtension: 'js',
-                  main: 'index.js'
-              },
-
-              '@angular/router': {
-                  defaultExtension: 'js',
-                  main: 'index.js'
-              },
-
-              '@angular/router-deprecated': {
-                  defaultExtension: 'js',
-                  main: 'index.js'
-              },
-
-              '@angular/http': {
-                  defaultExtension: 'js',
-                  main: 'index.js'
-              },
-
-              '@angular/platform-browser': {
-                  defaultExtension: 'js',
-                  main: 'index.js'
-              },
-
-              '@angular/platform-browser-dynamic': {
-                  defaultExtension: 'js',
-                  main: 'index.js'
-              }
+            app: {
+              format: 'register',
+              defaultExtension: 'js',
+              main: 'main.js'
+            },
+            '@angular/core': {
+              main: 'bundles/core.umd.js',
+              defaultExtension: 'js'
+            },
+            '@angular/compiler': {
+              main: 'bundles/compiler.umd.js',
+              defaultExtension: 'js'
+            },
+            '@angular/common': {
+              main: 'bundles/common.umd.js',
+              defaultExtension: 'js'
+            },
+            '@angular/platform-browser-dynamic': {
+              main: 'bundles/platform-browser-dynamic.umd.js',
+              defaultExtension: 'js'
+            },
+            '@angular/platform-browser': {
+              main: 'bundles/platform-browser.umd.js',
+              defaultExtension: 'js'
+            },
+            rxjs: {
+              main: 'bundles/Rx.umd.min.js',
+              defaultExtension: 'js'
+            }
           },
           map: {
-              'app': 'js/app',
-              '@angular/core': 'js/node_modules/@angular/core',
-              '@angular/common': 'js/node_modules/@angular/common',
-              '@angular/compiler': 'js/node_modules/@angular/compiler',
-              '@angular/router': 'js/node_modules/@angular/router',
-              '@angular/router-deprecated': 'js/node_modules/@angular/router-deprecated',
-              '@angular/http': 'js/node_moduleslib/@angular/http',
-              '@angular/platform-browser': 'js/node_modules/@angular/platform-browser',
-              '@angular/platform-browser-dynamic': 'js/node_modules/@angular/platform-browser-dynamic'
+            'app': 'js/app',
+            '@angular': 'js/node_modules/@angular',
+            'rxjs': 'js/node_modules/rxjs'
           }
       });
       System.import('main')
