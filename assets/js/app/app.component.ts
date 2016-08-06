@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 
 import { Chat } from './chat';
 import { ChatDetailComponent } from './chat-detail.component';

@@ -74,5 +74,5 @@ sails lift
 
 ### Watch this space
 
-1. I will be included a better angular2 demo with Sails.
+1. I will be including a better angular2 demo with Sails.
 2. I will be creating a Angular2 service to communicate with the Sails.js blueprint API, similar to [angular-sails](https://github.com/janpantel/angular-sails).

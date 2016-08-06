@@ -32,15 +32,15 @@ var jsFilesToInject = [
 
   // angular 2 node modules
   'js/node_modules/es6-shim/es6-shim.min.js',
+  'js/node_modules/reflect-metadata/Reflect.js',
+  'js/node_modules/zone.js/dist/zone.min.js',
   'js/node_modules/systemjs/dist/system-polyfills.js',
-  'js/node_modules/angular2/bundles/angular2-polyfills.js',
   'js/node_modules/systemjs/dist/system.src.js',
-  'js/node_modules/rxjs/bundles/Rx.js',
-  'js/node_modules/angular2/bundles/angular2.dev.js',
+  'js/node_modules/rxjs/bundles/Rx.min.js',
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
-  'js/**/*.js',
+  'js/app/**/*.js',
 
   // Use the "exclude" operator to ignore files
   // '!js/ignore/these/files/*.js'
