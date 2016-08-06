@@ -1,35 +1,46 @@
-import {Component} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Chat } from './chat';
 import { ChatDetailComponent } from './chat-detail.component';
-
-const CHATS: Chat[] = [
-  { id: 11, name: 'Mr. Nice' },
-  { id: 12, name: 'Narco' },
-  { id: 13, name: 'Bombasto' },
-  { id: 14, name: 'Celeritas' },
-  { id: 15, name: 'Magneta' },
-  { id: 16, name: 'RubberMan' },
-  { id: 17, name: 'Dynama' },
-  { id: 18, name: 'Dr IQ' },
-  { id: 19, name: 'Magma' },
-  { id: 20, name: 'Tornado' }
-];
+import { ChatService } from './chat.service';
 
 @Component({
     selector: 'my-app',
     template: `
     <h2>Chats</h2>
-    {{chats}}
-    <ul>
-    </ul>
-    <chat-detail [hero]="selectedChat"></chat-detail>
-    `
+    <div class="grid--md4">
+      <div class="grid__item" *ngFor="let chat of chats"
+        [class.selected]="chat === selectedChat">
+        <div class="card--chat">
+          <a (click)="onSelect(chat)">
+          <img class="card__image" src="http://placekitten.com/g/450/300"/>
+          </a>
+          <h3 class="card__title">
+            <a (click)="onSelect(chat)">{{chat.name}}</a>
+            </h3>
+          <a class="button" (click)="onSelect(chat)">join chat</a>
+      </div>
+    </div>
+    <chat-detail [chat]="selectedChat"></chat-detail>
+    `,
+    directives: [ChatDetailComponent],
+    providers: [ChatService]
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Chats';
-  chats = CHATS;
+  chats: Chat[];
   selectedChat: Chat;
+
+  constructor(private chatService: ChatService) { }
+
+  getChats() {
+    this.chatService.getChats().then(chats => this.chats = chats);
+  }
+
+  ngOnInit() {
+    this.getChats();
+  }
+
   onSelect(chat: Chat) { this.selectedChat = chat; }
 }
