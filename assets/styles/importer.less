@@ -13,8 +13,51 @@
  * always omit, customize, or replace this behavior with SASS, SCSS,
  * or any other Grunt tasks you like.)
  */
+ img {
+  max-width: 100%;
+ }
 
+.grid__item { display: inline-block; }
+.grid--md4 .grid__item {
+  width: 24%;
+  margin: 0.15em;
+}
 
+.card--chat {
+  border: 1px solid #ccc;
+  background: #fff;
+  padding: 1em;
+  margin: 0.4em;
+}
+
+.card__title {
+  padding: 0.5em 0;
+  border-bottom: 1px solid #eee;
+}
+
+.card__title a {
+  color: #000;
+  text-decoration: none;
+}
+
+.button {
+  background: #118798;
+  color: #fff;
+  text-decoration: none;
+  padding: .5em 1em;
+  display: inline-block;
+  margin: 13px 0;
+  text-align: center;
+}
+
+.button:hover {
+    background-color: #0e6471;
+    -webkit-transition: color 200ms;
+    -moz-transition: color 200ms;
+    -o-transition: color 200ms;
+    transition: color 200ms;
+    color: #fff;
+}
 
 // For example:
 //
