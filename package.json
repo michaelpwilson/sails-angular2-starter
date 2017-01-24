@@ -34,7 +34,7 @@
     "@angular/upgrade": "2.2.3",
     "systemjs": "^0.19.36",
     "es6-promise": "^4.0.5",
-    "es6-shim": "^0.35.1",
+    "es6-shim": "^0.35.3",
     "reflect-metadata": "0.1.9",
     "zone.js": "^0.7.2",
     "sails-hook-typescript": "^1.0.0"
