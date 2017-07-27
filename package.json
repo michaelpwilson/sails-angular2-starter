@@ -28,7 +28,7 @@
     "@angular/core": "2.2.3",
     "@angular/http": "2.2.4",
     "@angular/platform-browser": "2.4.9",
-    "@angular/platform-browser-dynamic": "2.2.3",
+    "@angular/platform-browser-dynamic": "4.3.2",
     "@angular/router": "4.0.0",
     "@angular/router-deprecated": "2.0.0-rc.2",
     "@angular/upgrade": "4.0.0",
