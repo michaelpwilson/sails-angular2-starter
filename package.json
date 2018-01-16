@@ -35,7 +35,7 @@
     "systemjs": "^0.20.1",
     "es6-promise": "^4.0.5",
     "es6-shim": "^0.35.1",
-    "reflect-metadata": "0.1.9",
+    "reflect-metadata": "0.1.12",
     "zone.js": "^0.8.0",
     "sails-hook-typescript": "^1.0.0"
   },
